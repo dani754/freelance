@@ -2,17 +2,17 @@ package database;
 
 import java.sql.*;
 
-public class PostgreSqlDB {
+public class DBInfo {
 	
 	private static String url = "jdbc:postgresql://localhost:5432/freelance";
 	private static String dbUser = "postgres";
 	private static String dbPass = "admin";
 
-	public PostgreSqlDB() {
+	public DBInfo() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static String[] dbInfo() {
+	public static String[] getDBInfo() {
 		String[] info = {url,dbUser,dbPass};
 		return info;
 	}
