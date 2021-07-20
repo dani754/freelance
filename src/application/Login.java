@@ -35,17 +35,20 @@ public class Login {
 	}
 	
 	private void checkLogin() throws IOException {
+
+		Main m = new Main();
 		if (username.getText().isEmpty() || password.getText().isEmpty()) {
 			loginStatus.setText("Please enter username and password");
 		} else if (User.checkLogin(username.getText(), password.getText())) {
-			loginStatus.setText("Success");
+			m.changeScene("CompaniesListScreen.fxml");
 		} else {
 			loginStatus.setText("Wrong username and password");
 		}
 	}
 	
 	public void registerScreen(ActionEvent e) throws IOException {
-		checkLogin();
+		Main m = new Main();
+		m.changeScene("RegisterScreen.fxml");
 	}
 	
 	

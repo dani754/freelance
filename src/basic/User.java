@@ -18,5 +18,9 @@ public class User {
 		return UsersTable.verifyUser(username, password);
 	}
 	
+	public static boolean registerNewUser(String username, String password) {
+		return  UsersTable.newUser(username, password);
+	}
+	
 
 }
