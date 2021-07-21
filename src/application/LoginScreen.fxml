@@ -21,7 +21,7 @@
             <Insets bottom="5.0" />
           </GridPane.margin>
         </Label>
-        <Button fx:id="login" contentDisplay="CENTER" mnemonicParsing="false" onAction="#userLogin" style="-fx-background-color: #ccf9ff;" text="Log In" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Button fx:id="login" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#userLogin" style="-fx-background-color: #ccf9ff;" text="Log In" GridPane.columnIndex="0" GridPane.rowIndex="1">
           <font>
             <Font name="Comic Sans MS" size="16.0" fx:id="x1" />
           </font>

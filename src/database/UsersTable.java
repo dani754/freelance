@@ -26,8 +26,10 @@ public class UsersTable {
 				rsUsername = rs.getString("username");
 				rsPass = rs.getString("password");
 			}
-			if (rsUsername.equals(username) && rsPass.equals(password))
+			if (rsUsername.equals(username) && rsPass.equals(password)) {
+				
 				return true;
+			}
 			else
 				return false;
 		}
