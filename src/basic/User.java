@@ -1,4 +1,9 @@
+/**
+ * User class
+ */
 package basic;
+
+import java.sql.SQLException;
 
 import database.UsersTable;
 
@@ -8,16 +13,27 @@ public class User {
 	private String _username;
 	private int[] _companiesIDs;
 	
-	public User() {
-		
-	}
-	
+	/**
+	 * A constructor for a new user.
+	 * @param userid
+	 * @param username
+	 * @param companiesIDs
+	 */
 	public User(int userid, String username, int[] companiesIDs) {
 		_userid = userid;
 		_username = username;
 		_companiesIDs = companiesIDs;
 	}
 	
+	public User(User other) {
+		this._userid = other._userid;
+		this._username = other._username;
+		this._companiesIDs = other._companiesIDs;
+	}
+	/**
+	 * Get user ID.
+	 * @return
+	 */
 	public int getUserID() {
 		return this._userid;
 	}
@@ -48,6 +64,10 @@ public class User {
 	
 	public static boolean registerNewUser(String username, String password) {
 		return  UsersTable.newUser(username, password);
+	}
+	
+	public static User getByName(String username) throws SQLException {
+		return UsersTable.getByName(username);
 	}
 	
 

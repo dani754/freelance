@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import basic.User;
 import javafx.event.ActionEvent;
@@ -30,16 +31,17 @@ public class Login {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void userLogin(ActionEvent e) throws IOException {
+	public void userLogin(ActionEvent e) throws IOException, Exception {
 		checkLogin();
 	}
 	
-	private void checkLogin() throws IOException {
+	private void checkLogin() throws IOException, SQLException {
 
 		Main m = new Main();
 		if (username.getText().isEmpty() || password.getText().isEmpty()) {
 			loginStatus.setText("Please enter username and password");
 		} else if (User.checkLogin(username.getText(), password.getText())) {
+			Main.setUser(User.getByName(username.getText()));
 			m.changeScene("CompaniesListScreen.fxml");
 		} else {
 			loginStatus.setText("Wrong username and password");

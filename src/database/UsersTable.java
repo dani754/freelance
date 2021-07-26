@@ -1,10 +1,15 @@
 package database;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import java.util.Arrays;
+
+import basic.User;
 
 public class UsersTable {
 
@@ -81,6 +86,31 @@ public class UsersTable {
 			ex.printStackTrace();
 			return false;
 		}	
+	}
+	
+	public static User getByName(String username) throws  SQLException {
+		String query = "SELECT * FROM users WHERE username=?";
+		String[] dbInfo  = DBInfo.getDBInfo();
+		try(Connection con = DriverManager.getConnection(dbInfo[0], dbInfo[1], dbInfo[2]);
+				PreparedStatement pst = con.prepareStatement(query)){
+			pst.setString(1, username);
+			ResultSet rs = pst.executeQuery();
+			int rsUserid = 0;
+			String rsUsername = "";
+			Array rsCompaniesArray;
+			int[] rsCompanies;
+			if (rs.next()) {
+				rsUserid = rs.getInt("userid");
+				rsUsername = rs.getString("username");
+				rsCompaniesArray = rs.getArray("companies");
+				rsCompanies = (int[])rsCompaniesArray.getArray();
+				return new User(rsUserid,rsUsername,rsCompanies);
+			}			
+		}
+		catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return null;		
 	}
 	
 
