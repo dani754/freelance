@@ -32,16 +32,17 @@ public class Login {
 	}
 	
 	public void userLogin(ActionEvent e) throws IOException, Exception {
-		checkLogin();
+		userLogin();
 	}
 	
-	private void checkLogin() throws IOException, SQLException {
+	private void userLogin() throws IOException, SQLException {
 
 		Main m = new Main();
 		if (username.getText().isEmpty() || password.getText().isEmpty()) {
 			loginStatus.setText("Please enter username and password");
 		} else if (User.checkLogin(username.getText(), password.getText())) {
-			Main.setUser(User.getByName(username.getText()));
+			Main.setUser(User.getUserByName(username.getText()));
+			Main.getCompaniesByUser();
 			m.changeScene("CompaniesListScreen.fxml");
 		} else {
 			loginStatus.setText("Wrong username and password");

@@ -1,6 +1,6 @@
-package Basic;
+package basic;
 
-import Basic.Company;
+import database.CompaniesTable;
 
 public class Company {
 	
@@ -101,5 +101,7 @@ public class Company {
 		this._adminID = other._adminID;
 		}
 		
+	public static String getCompanyName(int companyID) {
+		return CompaniesTable.getCompanyName(companyID);
 	}
 }

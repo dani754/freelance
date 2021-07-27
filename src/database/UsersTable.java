@@ -1,13 +1,6 @@
 package database;
 
-import java.sql.Array;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import java.util.Arrays;
+import java.sql.*;
 
 import basic.User;
 
@@ -17,7 +10,7 @@ public class UsersTable {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static boolean verifyUser(String username, String password) {
+	public static boolean checkLogin(String username, String password) {
 		String query = "SELECT * FROM users WHERE username=?";
 		String[] dbInfo  = DBInfo.getDBInfo();
 		try(Connection con = DriverManager.getConnection(dbInfo[0], dbInfo[1], dbInfo[2]);
@@ -29,7 +22,7 @@ public class UsersTable {
 			String rsPass = "";
 			if (rs.next()) {
 				rsUsername = rs.getString("username");
-				rsPass = rs.getString("password");
+				rsPass = rs.getString("upassword");
 			}
 			if (rsUsername.equals(username) && rsPass.equals(password)) {
 				
@@ -70,7 +63,7 @@ public class UsersTable {
 	}
 	
 	private static boolean addNewUser(String username, String password) {
-		String query = "INSERT INTO users (username,password) VALUES (?,?)";
+		String query = "INSERT INTO users (username,upassword) VALUES (?,?)";
 		String[] dbInfo = DBInfo.getDBInfo();
 		try (Connection con = DriverManager.getConnection(dbInfo[0], dbInfo[1], dbInfo[2]);
 				PreparedStatement pst = con.prepareStatement(query)){
@@ -98,13 +91,16 @@ public class UsersTable {
 			int rsUserid = 0;
 			String rsUsername = "";
 			Array rsCompaniesArray;
-			int[] rsCompanies;
 			if (rs.next()) {
 				rsUserid = rs.getInt("userid");
 				rsUsername = rs.getString("username");
 				rsCompaniesArray = rs.getArray("companies");
-				rsCompanies = (int[])rsCompaniesArray.getArray();
-				return new User(rsUserid,rsUsername,rsCompanies);
+				Integer[] arr = (Integer[])rsCompaniesArray.getArray();
+				int[] rsCompaniesIDs= new int[arr.length];
+				for (int i=0; i<arr.length; i++) {
+					rsCompaniesIDs[i] = arr[i].intValue();
+				}
+				return new User(rsUserid,rsUsername,rsCompaniesIDs);
 			}			
 		}
 		catch (SQLException ex) {

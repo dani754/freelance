@@ -16,6 +16,8 @@ public class Main extends Application {
 	private static Stage stg;
 	private static User _user;
 	private static Company _currentCompany;
+	private static int[] _companiesListIDs = {1};
+	private static String[] _companiesListNames = {"template"};
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -59,5 +61,13 @@ public class Main extends Application {
 	
 	public static Company getCompany() {
 		return _currentCompany;
+	}
+	
+	public static void getCompaniesByUser() {
+		_companiesListIDs = _user.getCompaniesIDs();
+		String[] CompaniesListNames = new String[_companiesListIDs.length];
+		for (int i=0; i<_companiesListIDs.length; i++) {
+			CompaniesListNames[i] = Company.getCompanyName(_companiesListIDs[i]);
+		}
 	}
 }

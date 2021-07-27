@@ -59,16 +59,17 @@ public class User {
 	}
 	
 	public static boolean checkLogin(String username, String password) {
-		return UsersTable.verifyUser(username, password);
+		return UsersTable.checkLogin(username, password);
 	}
 	
-	public static boolean registerNewUser(String username, String password) {
-		return  UsersTable.newUser(username, password);
-	}
-	
-	public static User getByName(String username) throws SQLException {
+	public static User getUserByName(String username) throws SQLException {
 		return UsersTable.getByName(username);
 	}
 	
-
+	
+	public static boolean newUser(String username, String password) {
+		return  UsersTable.newUser(username, password);
+	}
+	
+	
 }
