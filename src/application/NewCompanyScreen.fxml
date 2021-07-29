@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane focusTraversable="false" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.NewCompany">
+  <!-- TODO Add Nodes -->
+  <bottom>
+    <VBox alignment="CENTER" prefHeight="-1.0" prefWidth="-1.0" spacing="10.0" BorderPane.alignment="CENTER" BorderPane.margin="$x3">
+      <children>
+        <CheckBox fx:id="copyRecords" alignment="CENTER" contentDisplay="TOP" focusTraversable="false" mnemonicParsing="false" onAction="#copyRecords" text="Also copy the company records" visible="true" VBox.vgrow="SOMETIMES">
+          <font>
+            <Font name="Comic Sans MS" size="12.0" />
+          </font>
+          <textFill>
+            <Color blue="0.278" green="0.529" red="0.000" fx:id="x2" />
+          </textFill>
+          <VBox.margin>
+            <Insets />
+          </VBox.margin>
+        </CheckBox>
+        <HBox alignment="CENTER" prefHeight="-1.0" prefWidth="-1.0" spacing="10.0">
+          <children>
+            <Button id="logout" fx:id="cancel" alignment="CENTER_LEFT" cancelButton="true" contentDisplay="CENTER" defaultButton="false" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #accada;" text="return" textFill="$x2" HBox.hgrow="SOMETIMES">
+              <font>
+                <Font name="Comic Sans MS" size="16.0" fx:id="x1" />
+              </font>
+              <HBox.margin>
+                <Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+              </HBox.margin>
+            </Button>
+            <Button fx:id="createCompany" alignment="CENTER_RIGHT" contentDisplay="CENTER" defaultButton="true" font="$x1" mnemonicParsing="false" onAction="#createCompany" style="-fx-background-color: #accada;" text="continue" textFill="$x2" HBox.hgrow="SOMETIMES">
+              <HBox.margin>
+                <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
+              </HBox.margin>
+            </Button>
+          </children>
+          <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x3" />
+          </padding>
+        </HBox>
+      </children>
+    </VBox>
+  </bottom>
+  <center>
+    <ListView fx:id="companiesListView" editable="true" focusTraversable="false" prefHeight="30.0" prefWidth="-1.0" visible="true" BorderPane.alignment="CENTER" BorderPane.margin="$x3" />
+  </center>
+  <top>
+    <VBox alignment="CENTER_LEFT" padding="$x3" prefHeight="-1.0" prefWidth="-1.0" spacing="20.0" BorderPane.alignment="CENTER" BorderPane.margin="$x3">
+      <children>
+        <RadioButton fx:id="blankCompany" alignment="CENTER" contentDisplay="CENTER" font="$x1" mnemonicParsing="false" onAction="#blankCompany" selected="true" text="Create a new blank company" textFill="$x2" VBox.vgrow="SOMETIMES" />
+        <RadioButton fx:id="copyCompany" alignment="CENTER_LEFT" contentDisplay="CENTER" font="$x1" mnemonicParsing="false" onAction="#copyCompany" selected="false" text="Copy an existing company index" textFill="$x2" VBox.vgrow="SOMETIMES" />
+      </children>
+    </VBox>
+  </top>
+</BorderPane>

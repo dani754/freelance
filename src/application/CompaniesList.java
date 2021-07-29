@@ -53,7 +53,8 @@ public class CompaniesList implements Initializable {
 	}
 	
 	public void newCompany(ActionEvent e) throws IOException, Exception {
-		System.out.println("new company screen");
+		Main m = new Main();
+		m.changeScene("NewCompanyScreen.fxml");
 	}
 	
 	public void logOut(ActionEvent e) throws IOException, Exception {
