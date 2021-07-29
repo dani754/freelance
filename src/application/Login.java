@@ -42,7 +42,6 @@ public class Login {
 			loginStatus.setText("Please enter username and password");
 		} else if (User.checkLogin(username.getText(), password.getText())) {
 			Main.setUser(User.getUserByName(username.getText()));
-			Main.getCompaniesByUser();
 			m.changeScene("CompaniesListScreen.fxml");
 		} else {
 			loginStatus.setText("Wrong username and password");

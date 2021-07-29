@@ -49,6 +49,7 @@ public class Main extends Application {
 	
 	public static void setUser(User user) {
 		_user = new User(user);
+		getCompaniesByUser();
 	}
 	
 	public static User getUser() {
@@ -65,9 +66,14 @@ public class Main extends Application {
 	
 	public static void getCompaniesByUser() {
 		_companiesListIDs = _user.getCompaniesIDs();
-		String[] CompaniesListNames = new String[_companiesListIDs.length];
+		String[] companiesListNames = new String[_companiesListIDs.length];
 		for (int i=0; i<_companiesListIDs.length; i++) {
-			CompaniesListNames[i] = Company.getCompanyName(_companiesListIDs[i]);
+			companiesListNames[i] = Company.getCompanyName(_companiesListIDs[i]);
 		}
+		_companiesListNames = companiesListNames;
+	}
+	
+	public static String[] getCompaniesListNames() {
+		return _companiesListNames;
 	}
 }
