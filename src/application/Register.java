@@ -23,6 +23,8 @@ public class Register {
 	private Label registerStatus;
 	@FXML
 	private Button submit;
+	@FXML
+	private Button logout;
 
 		
 	public Register() {
@@ -50,5 +52,11 @@ public class Register {
 			registerStatus.setText("This username already exists, please select another username");
 		}
 	}
+	
+	public void logOut(ActionEvent e) throws IOException, Exception {
+		Main m = new Main();
+		m.logOut();
+	}
+
 
 }

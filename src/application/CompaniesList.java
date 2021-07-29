@@ -57,7 +57,7 @@ public class CompaniesList implements Initializable {
 	}
 	
 	public void logOut(ActionEvent e) throws IOException, Exception {
-		System.out.println("return to logIn screen");
+		Main m = new Main();
+		m.logOut();
 	}
-
 }

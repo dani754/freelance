@@ -76,4 +76,12 @@ public class Main extends Application {
 	public static String[] getCompaniesListNames() {
 		return _companiesListNames;
 	}
+	
+	public void logOut() {
+		_user = null;
+		_currentCompany = null;
+		_companiesListIDs = new int[] {1};
+		_companiesListNames = new String[] {"template"};
+		this.changeScene("LoginScreen.fxml");
+	}
 }
