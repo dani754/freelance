@@ -104,4 +104,13 @@ public class Company {
 	public static String getCompanyName(int companyID) {
 		return CompaniesTable.getCompanyName(companyID);
 	}
+	
+	public static void createNewCompany(int state, String companyName, String copiedCompanyName) {
+		if (state == 1)
+			CompaniesTable.createBlankCompany(companyName);
+		else if (state == 2)
+			CompaniesTable.createCompanyFromTemplate(companyName, copiedCompanyName);
+		else
+			CompaniesTable.copyExistingCompany(companyName, copiedCompanyName);
+	}
 }

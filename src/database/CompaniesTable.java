@@ -32,4 +32,19 @@ public class CompaniesTable {
 			return null;
 		}		
 	}
+
+	public static void createBlankCompany(String companyName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void createCompanyFromTemplate(String companyName, String copiedCompanyName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void copyExistingCompany(String companyName, String copiedCompanyName) {
+		// TODO Auto-generated method stub
+		
+	}
 }
