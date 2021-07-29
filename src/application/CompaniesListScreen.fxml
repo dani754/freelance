@@ -10,6 +10,36 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.CompaniesList">
   <!-- TODO Add Nodes -->
+  <bottom>
+    <HBox alignment="CENTER" prefHeight="-1.0" prefWidth="-1.0" BorderPane.alignment="CENTER">
+      <children>
+        <Button fx:id="logout" cancelButton="true" contentDisplay="CENTER" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: #accada;" text="return" HBox.hgrow="SOMETIMES">
+          <font>
+            <Font name="Comic Sans MS" size="16.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color blue="0.278" green="0.529" red="0.000" fx:id="x2" />
+          </textFill>
+          <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+          </HBox.margin>
+        </Button>
+        <Button fx:id="newCopmany" cancelButton="false" contentDisplay="CENTER" font="$x3" mnemonicParsing="false" onAction="#newCompany" style="-fx-background-color: #accada;" text="new.." textFill="$x2" HBox.hgrow="SOMETIMES">
+          <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+          </HBox.margin>
+        </Button>
+        <Button fx:id="selectCompany" cancelButton="false" contentDisplay="CENTER" defaultButton="true" font="$x3" mnemonicParsing="false" onAction="#selectCompany" style="-fx-background-color: #accada;" text="select" textFill="$x2" HBox.hgrow="SOMETIMES">
+          <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+          </HBox.margin>
+        </Button>
+      </children>
+      <BorderPane.margin>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="15.0" />
+      </BorderPane.margin>
+    </HBox>
+  </bottom>
   <center>
     <ListView fx:id="companiesListView" editable="true" orientation="VERTICAL" prefHeight="-1.0" prefWidth="-1.0" BorderPane.alignment="CENTER">
       <BorderPane.margin>
@@ -21,10 +51,6 @@
     <Insets bottom="30.0" left="15.0" right="15.0" top="30.0" />
   </padding>
   <top>
-    <Label fx:id="headline" alignment="CENTER" contentDisplay="CENTER" text="Choose a company from the list below:" textFill="#008747" BorderPane.alignment="CENTER" BorderPane.margin="$x1">
-      <font>
-        <Font name="Comic Sans MS" size="16.0" />
-      </font>
-    </Label>
+    <Label fx:id="headline" alignment="CENTER" contentDisplay="CENTER" font="$x3" text="Choose a company from the list below:" textFill="$x2" BorderPane.alignment="CENTER" BorderPane.margin="$x1" />
   </top>
 </BorderPane>

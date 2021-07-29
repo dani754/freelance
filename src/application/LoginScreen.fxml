@@ -21,7 +21,7 @@
             <Insets bottom="5.0" />
           </GridPane.margin>
         </Label>
-        <Button fx:id="login" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#userLogin" style="-fx-background-color: #ccf9ff;" text="Log In" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Button fx:id="login" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#userLogin" style="-fx-background-color: #accada;" text="Log In" GridPane.columnIndex="0" GridPane.rowIndex="1">
           <font>
             <Font name="Comic Sans MS" size="16.0" fx:id="x1" />
           </font>
@@ -32,7 +32,7 @@
             <Insets bottom="20.0" />
           </GridPane.margin>
         </Button>
-        <Button fx:id="register" contentDisplay="CENTER" font="$x1" mnemonicParsing="false" onAction="#registerScreen" style="-fx-background-color: #ccf9ff;" text="Register" textFill="$x2" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Button fx:id="register" contentDisplay="CENTER" font="$x1" mnemonicParsing="false" onAction="#registerScreen" style="-fx-background-color: #accada;" text="Register" textFill="$x2" GridPane.columnIndex="0" GridPane.rowIndex="2" />
       </children>
       <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="-1.0" prefWidth="-1.0" />
