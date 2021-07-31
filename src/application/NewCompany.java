@@ -25,7 +25,6 @@ public class NewCompany  implements Initializable {
 	
 	private String[] _CompaniesListNames;
 	private String _currentCompany;
-	private String _companyName;
 	
 	@FXML
 	private RadioButton blankCompany;
@@ -46,17 +45,6 @@ public class NewCompany  implements Initializable {
 		// TODO Auto-generated constructor stub
 		
 	}
-	
-	public void setCompanyName(ActionEvent e) throws IOException, Exception {
-		System.out.println(companyName.getText());
-		setCompanyName(companyName.getText());
-	}
-	
-	private void setCompanyName(String name) {
-		this._companyName = name;
-	}
-	
-	
 	
 	public void blankCompany(ActionEvent e) throws IOException, Exception {
 		System.out.println("blank Company screen");
@@ -79,8 +67,7 @@ public class NewCompany  implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
 				_currentCompany = companiesListView.getSelectionModel().getSelectedItem();
-				_companyName = _currentCompany + "_copy";
-				companyName.setText(_companyName);
+				companyName.setText(_currentCompany + "_copy");
 			}
 		});
 	}
@@ -101,8 +88,18 @@ public class NewCompany  implements Initializable {
 	}
 	
 	public void createCompany(ActionEvent e) throws IOException, Exception {
-		System.out.println("createCompany");
-		Company.createNewCompany(_currentState,_companyName,_currentCompany);
+		int userid = Main.getUser().getUserID();
+		System.out.println("createCompany" + 
+				userid + ", " + _currentState + ", " + companyName.getText() + ", " + _currentCompany);
+		Company.createNewCompany(userid, _currentState,companyName.getText(),_currentCompany);
+		//Main m = new Main();
+		//m.setCompany();
+		/*
+		 * Caused by: java.lang.NullPointerException: Cannot read field "_serialID" because "other" is null
+			at freelance/basic.Company.<init>(Company.java:99)
+			at freelance/application.Main.setCompany(Main.java:60)
+			at freelance/application.NewCompany.createCompany(NewCompany.java:95)
+		 */
 	}
 	
 	
