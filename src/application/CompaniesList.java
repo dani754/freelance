@@ -50,6 +50,8 @@ public class CompaniesList implements Initializable {
 	
 	public void selectCompany(ActionEvent e) throws IOException, Exception {
 		System.out.println("the selected company is: " + _currentCompany);
+		Main m = new Main();
+		m.changeScene("CompanyMain.fxml");
 	}
 	
 	public void newCompany(ActionEvent e) throws IOException, Exception {
